@@ -20,7 +20,7 @@ function App() {
 		if(city) {
 			const { data } = await axios.get(url);
 			setData(data);
-			setCity('');
+			// setCity('');
 			navigate('/weather')
 		}
 	}

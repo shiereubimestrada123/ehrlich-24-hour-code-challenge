@@ -13,7 +13,7 @@ function Home({ handleSubmit, setCity, city }) {
 						<img src={Search} alt='Search' className='absolute w-4 h-4 ml-3' />
 						<input onChange={(e) => setCity(e.target.value)} value={city} type="text" className='border-2 border-gray-600 rounded-full p-1 pl-9' />
 					</div>
-					<button type='submit' className='bg-indigo-500 border-white py-2 px-4'>Display Weather</button>
+					<button type='submit' className='bg-slate-400 border-white py-2 px-4'>Display Weather</button>
 				</form>
 			</Main>
     </section>

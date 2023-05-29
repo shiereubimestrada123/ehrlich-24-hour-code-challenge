@@ -1,33 +1,34 @@
+import { Link } from "react-router-dom";
+import moment from 'moment';
+
 import Main from '../../components/Main'
 
 function Weather({ data }) {
-	console.log('test')
-	console.log('weather', data)
+	const tableHeader = ['Date (mm/dd/yyyy)', 'Temp(F)', 'Description', 'Main', 'Pressure', 'Humidity']
+
   return (
     <section>
       <Main>
-			<table class="table-auto border-collapse border border-slate-400">
-				<thead>
-					<tr>
-						<th class="border border-slate-300">Date (mm/dd/yyyy)</th>
-						<th class="border border-slate-300">Temp(F)</th>
-						<th class="border border-slate-300">Description</th>
-						<th class="border border-slate-300">Main</th>
-						<th class="border border-slate-300">Pressure</th>
-						<th class="border border-slate-300">Humidity</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="border border-slate-300">09/01/2020</td>
-						<td class="border border-slate-300">75</td>
-						<td class="border border-slate-300">Sky is clear</td>
-						<td class="border border-slate-300">Clear</td>
-						<td class="border border-slate-300">1023.68</td>
-						<td class="border border-slate-300">Humidity</td>
-					</tr>
-				</tbody>
-			</table>
+				<table className="table-auto border-collapse border border-slate-400">
+					<thead>
+						<tr>
+							{tableHeader.map((h, i) => (
+								<th key={i} className='border border-slate-300'>{h}</th>
+							))}
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td className="border border-slate-300">{moment().format('MM/DD/YYYY')}</td>
+							<td className="border border-slate-300">{data?.main?.temp}</td>
+							<td className="border border-slate-300">{data.weather ? data?.weather[0]?.description : null}</td>
+							<td className="border border-slate-300">{data.weather ? data?.weather[0]?.main : null}</td>
+							<td className="border border-slate-300">{data?.main?.pressure}</td>
+							<td className="border border-slate-300">{data?.main?.humidity}</td>
+						</tr>
+					</tbody>
+				</table>
+				<Link to='/home' className="w-fit bg-slate-400 self-end py-2 px-4">Back</Link>
 			</Main>
     </section>
   )
