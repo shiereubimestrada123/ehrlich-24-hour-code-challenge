@@ -1,6 +1,8 @@
 import Main from '../../components/Main'
 
-function Weather() {
+function Weather({ data }) {
+	console.log('test')
+	console.log('weather', data)
   return (
     <section>
       <Main>
