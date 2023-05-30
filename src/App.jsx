@@ -6,6 +6,7 @@ import Landing from './pages/Landing/Landing.jsx'
 import Home from './pages/Home/Home.jsx'
 import Weather from './pages/Weather/Weather.jsx'
 
+import PrivateRoute from './components/PrivateRoute.jsx';
 import Navbar from './components/Navbar.jsx'
 
 function App() {
@@ -31,10 +32,12 @@ function App() {
 		<>
 			<Navbar />
 			<Routes>
-      <Route path='/' element={<Landing />} />
-      <Route path='/home' element={<Home handleSubmit={handleSubmit} setCity={setCity} city={city} />} />
-      <Route path='/weather' element={<Weather data={data} />} />
-    </Routes>
+				<Route path='/' element={<Landing />} />
+				{/* <Route element={ <PrivateRoute /> }> */}
+					<Route exact path='/home' element={<Home handleSubmit={handleSubmit} setCity={setCity} city={city} />} />
+					<Route exact path="/weather" element={<Weather data={data} />} />
+				{/* </Route> */}
+			</Routes>
 		</>
   )
 }
